@@ -1,0 +1,95 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --bg-dark: #0a0a0a;
+    --bg-surface: #141414;
+    --bg-card: #1a1a1a;
+    --accent-copper: #c9884f;
+    --accent-amber: #e09f53;
+    --border-dark: #2a2a2a;
+    --text-main: #f5f5f0;
+    --text-muted: #9a9a9a;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Luxury Ambient Glow & Effects */
+.amber-glow-bg {
+  background: radial-gradient(circle at 50% 30%, rgba(201, 136, 79, 0.16) 0%, rgba(10, 10, 10, 0.98) 70%);
+}
+
+.amber-glow-hero {
+  background: radial-gradient(ellipse at 50% 20%, rgba(201, 136, 79, 0.22) 0%, rgba(20, 20, 20, 0.7) 45%, rgba(10, 10, 10, 1) 85%);
+}
+
+.card-luxury {
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  border-color: rgba(201, 136, 79, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(201, 136, 79, 0.25);
+  transform: translateY(-3px);
+}
+
+.btn-copper-pill {
+  background: linear-gradient(135deg, #c9884f 0%, #a86c38 100%);
+  color: #0a0a0a;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 20px rgba(201, 136, 79, 0.3);
+}
+
+.btn-copper-pill:hover {
+  background: linear-gradient(135deg, #e09f53 0%, #c9884f 100%);
+  box-shadow: 0 0 30px rgba(201, 136, 79, 0.5);
+  transform: scale(1.03);
+}
+
+.btn-copper-outline {
+  border: 1px solid #c9884f;
+  color: #c9884f;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  padding: 0.65rem 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.btn-copper-outline:hover {
+  background: rgba(201, 136, 79, 0.15);
+  color: #f5f5f0;
+  border-color: #e09f53;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9884f;
+}
