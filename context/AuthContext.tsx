@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const loginDemo = (selectedRole: UserRole) => {
-    const demoUser = DEMO_USERS[selectedRole] || DEMO_USERS.customer;
+    const demoUser = selectedRole === 'seller' ? DEMO_USERS.seller : DEMO_USERS.customer;
     setUser(demoUser);
     setRoleState(selectedRole);
     if (typeof window !== 'undefined') {
