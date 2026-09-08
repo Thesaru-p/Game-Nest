@@ -26,8 +26,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
         className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#F5F4FF] border-l-3 border-[#1A1A1A] shadow-sticker-lg flex flex-col justify-between text-[#1A1A1A]">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-full sm:max-w-md bg-[#F5F4FF] border-l-3 border-[#1A1A1A] shadow-sticker-lg flex flex-col justify-between text-[#1A1A1A]">
           
           {/* Header */}
           <div className="p-6 border-b-2.5 border-[#1A1A1A] flex items-center justify-between bg-[#6C6CEB]">

@@ -110,19 +110,19 @@ export default function OrdersPage() {
                     </div>
 
                     {/* Key Box */}
-                    <div className="flex items-center gap-3 bg-[#F5F4FF] border-2 border-[#1A1A1A] rounded-xl px-4 py-2.5 shadow-sticker-sm">
-                      <div>
+                    <div className="flex items-center justify-between sm:justify-start gap-3 bg-[#F5F4FF] border-2 border-[#1A1A1A] rounded-xl px-3.5 sm:px-4 py-2.5 shadow-sticker-sm w-full md:w-auto">
+                      <div className="min-w-0">
                         <span className="text-[9px] font-extrabold text-[#1A1A1A]/70 uppercase block">
                           ACTIVATION KEY
                         </span>
-                        <span className="text-xs font-mono font-extrabold text-[#1A1A1A] tracking-wider">
+                        <span className="text-xs font-mono font-extrabold text-[#1A1A1A] tracking-wider break-all">
                           {item.digitalKey}
                         </span>
                       </div>
 
                       <button
                         onClick={() => handleCopyKey(item.digitalKey)}
-                        className="p-2 rounded-lg bg-[#F4A6C6] hover:bg-[#F3E29B] border border-[#1A1A1A] text-[#1A1A1A] transition-all ml-2 shadow-sticker-sm"
+                        className="p-2 rounded-lg bg-[#F4A6C6] hover:bg-[#F3E29B] border border-[#1A1A1A] text-[#1A1A1A] transition-all ml-1 flex-shrink-0 shadow-sticker-sm"
                         title="Copy Key"
                       >
                         {copiedKey === item.digitalKey ? (

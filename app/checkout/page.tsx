@@ -121,7 +121,7 @@ export default function CheckoutPage() {
               PAYMENT METHOD
             </h3>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 xs:grid-cols-3 gap-2.5 sm:gap-3">
               <button
                 type="button"
                 onClick={() => setPaymentMethod('card')}

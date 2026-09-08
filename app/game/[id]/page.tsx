@@ -120,15 +120,15 @@ export default function GameDetailPage() {
                 </button>
               </div>
 
-              {/* Bottom-Left Floating Price & BUY NOW Pill Button */}
-              <div className="absolute bottom-6 left-6 z-20 flex items-center gap-4 bg-[#F5F4FF] border-2.5 border-[#1A1A1A] rounded-full px-6 py-3 shadow-sticker-md">
+              {/* Bottom Floating Price & BUY NOW Pill Button */}
+              <div className="absolute bottom-3 left-3 right-3 sm:right-auto sm:bottom-6 sm:left-6 z-20 flex items-center justify-between sm:justify-start gap-3 sm:gap-4 bg-[#F5F4FF] border-2.5 border-[#1A1A1A] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sticker-md">
                 <div className="flex flex-col">
-                  <span className="text-[10px] text-[#1A1A1A]/70 font-extrabold uppercase">DIGITAL KEY</span>
-                  <span className="text-2xl font-extrabold text-[#1A1A1A]">${game.price.toFixed(2)}</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#1A1A1A]/70 font-extrabold uppercase">DIGITAL KEY</span>
+                  <span className="text-xl sm:text-2xl font-extrabold text-[#1A1A1A]">${game.price.toFixed(2)}</span>
                 </div>
                 <button
                   onClick={() => addToCart(game)}
-                  className="btn-pill-pink text-xs py-2.5 px-6 flex items-center gap-2 font-extrabold"
+                  className="btn-pill-pink text-xs py-2 sm:py-2.5 px-4 sm:px-6 flex items-center gap-1.5 sm:gap-2 font-extrabold"
                 >
                   BUY NOW
                   <ArrowRight className="w-4 h-4 stroke-[2.5]" />
