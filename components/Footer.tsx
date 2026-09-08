@@ -65,12 +65,14 @@ export const Footer: React.FC = () => {
         {/* Main Footer Content */}
         <div className="mt-12 pt-8 border-t-2.5 border-[#1A1A1A] grid grid-cols-1 md:grid-cols-5 gap-10">
           <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="inline-block">
-              <img
-                src="/images/logo.png"
-                alt="Game Nest Logo"
-                className="h-16 w-auto object-contain drop-shadow-[3px_3px_0px_#1A1A1A]"
-              />
+            <Link href="/" className="inline-block group">
+              <div className="bg-[#FFFFFF] border-2.5 border-[#1A1A1A] p-3 rounded-2xl shadow-sticker-md hover:bg-[#F4A6C6] hover:scale-105 transition-all inline-flex items-center justify-center">
+                <img
+                  src="/images/logo.png"
+                  alt="Game Nest Logo"
+                  className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
+                />
+              </div>
             </Link>
             <p className="text-xs font-medium text-white max-w-sm leading-relaxed drop-shadow-[1px_1px_0px_#1A1A1A]">
               The ultimate Y2K retro-inspired digital key marketplace. Connecting verified sellers with discerning players across all platforms.
