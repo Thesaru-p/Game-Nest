@@ -114,22 +114,22 @@ export default function AboutPage() {
 
   const leaders = [
     {
-      name: 'Alexander Vance',
-      role: 'Chief Executive & Co-Founder',
-      bio: 'Former senior gaming hardware architect passionate about bringing Y2K retro gaming aesthetics to digital marketplaces.',
+      name: 'Ramiru Chanmika',
+      role: 'Chief Executive Officer',
+      bio: 'Founder and Chief Executive leading Game Nest vision, bringing Y2K retro gaming aesthetics to modern digital marketplaces.',
       tag: 'Leadership',
     },
     {
-      name: 'Elena Rostova',
-      role: 'Head of Cryptographic Security',
-      bio: 'Cybersecurity veteran specializing in automated digital rights verification and anti-fraud vault architectures.',
-      tag: 'Security & Engineering',
+      name: 'Sanduni Nethmini',
+      role: 'Chief Operating Officer',
+      bio: 'Executive leading operations, customer experience, and automated cryptographic key distribution security.',
+      tag: 'Operations',
     },
     {
-      name: 'Marcus Sterling',
-      role: 'Director of Publisher Relations',
-      bio: 'Veteran games industry executive connecting AAA and indie studios with verified key distribution networks.',
-      tag: 'Publisher Ecosystem',
+      name: 'Wimansha Kithmini',
+      role: 'Chief Technology Officer',
+      bio: 'Technology leader directing system architecture, publisher integration networks, and vault infrastructure.',
+      tag: 'Technology',
     },
   ];
 

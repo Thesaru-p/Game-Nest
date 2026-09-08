@@ -44,12 +44,12 @@ function NavbarContent() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Brand Logo - Top Left */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative flex-shrink-0">
-            <div className="h-10 sm:h-14 w-auto flex items-center justify-center transition-transform group-hover:scale-105">
+          <Link href="/" className="flex items-center group relative flex-shrink-0">
+            <div className="bg-[#FFFFFF] border-2 sm:border-2.5 border-[#1A1A1A] px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-2xl shadow-sticker-sm hover:bg-[#F3E29B] hover:scale-105 transition-all flex items-center justify-center">
               <img
                 src="/images/logo.png"
                 alt="Game Nest Logo"
-                className="h-9 sm:h-12 w-auto object-contain drop-shadow-[2px_2px_0px_#1A1A1A]"
+                className="h-8 sm:h-11 w-auto object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
               />
             </div>
           </Link>
