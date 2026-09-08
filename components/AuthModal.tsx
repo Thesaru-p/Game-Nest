@@ -27,8 +27,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in">
-      <div className="relative w-full max-w-md bg-[#F5F4FF] border-3 border-[#1A1A1A] rounded-3xl shadow-sticker-lg p-6 sm:p-8 overflow-hidden text-[#1A1A1A]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 sm:p-4 animate-in fade-in">
+      <div className="relative w-full max-w-md bg-[#F5F4FF] border-3 border-[#1A1A1A] rounded-3xl shadow-sticker-lg p-5 sm:p-8 max-h-[92vh] overflow-y-auto text-[#1A1A1A]">
         {/* Close Button */}
         <button
           onClick={onClose}

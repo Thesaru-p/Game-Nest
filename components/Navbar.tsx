@@ -2,9 +2,8 @@
 
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { ShoppingBag, Heart, User, ShieldCheck, X, Menu, Sparkles } from 'lucide-react';
+import { ShoppingBag, Heart, User, ShieldCheck, X, Menu } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { AuthModal } from './AuthModal';
 import { CartDrawer } from './CartDrawer';
@@ -42,21 +41,21 @@ function NavbarContent() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-[#6C6CEB] border-b-3 border-[#1A1A1A] shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Brand Logo - Top Left */}
-          <Link href="/" className="flex items-center gap-3 group relative">
-            <div className="h-14 w-auto flex items-center justify-center transition-transform group-hover:scale-105">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative flex-shrink-0">
+            <div className="h-10 sm:h-14 w-auto flex items-center justify-center transition-transform group-hover:scale-105">
               <img
                 src="/images/logo.png"
                 alt="Game Nest Logo"
-                className="h-12 w-auto object-contain drop-shadow-[2px_2px_0px_#1A1A1A]"
+                className="h-9 sm:h-12 w-auto object-contain drop-shadow-[2px_2px_0px_#1A1A1A]"
               />
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-2 bg-[#F5F4FF] border-2.5 border-[#1A1A1A] px-4 py-1.5 rounded-full shadow-sticker-sm">
+          <nav className="hidden md:flex items-center space-x-1.5 bg-[#F5F4FF] border-2.5 border-[#1A1A1A] px-3.5 py-1.5 rounded-full shadow-sticker-sm">
             {navLinks.map((link) => {
               const isActive = getIsActive(link.href);
               return (
@@ -76,12 +75,12 @@ function NavbarContent() {
           </nav>
 
           {/* Actions & Role Selector */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             
             {/* Customer vs Seller Role Switcher */}
             <button
               onClick={() => setRole(role === 'customer' ? 'seller' : 'customer')}
-              className="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F3E29B] border-2.5 border-[#1A1A1A] text-xs font-extrabold text-[#1A1A1A] shadow-sticker-sm hover:translate-y-[-1px] transition-all"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F3E29B] border-2.5 border-[#1A1A1A] text-xs font-extrabold text-[#1A1A1A] shadow-sticker-sm hover:translate-y-[-1px] transition-all"
               title="Toggle Customer or Seller Portal view"
             >
               <span className="text-[10px] uppercase font-bold text-[#1A1A1A]/70">ROLE:</span>
@@ -93,12 +92,12 @@ function NavbarContent() {
             {/* Wishlist Icon */}
             <Link
               href="/catalog?wishlist=true"
-              className="relative p-2.5 rounded-full bg-[#F5F4FF] border-2.5 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#F4A6C6] shadow-sticker-sm transition-all"
+              className="relative p-2 sm:p-2.5 rounded-full bg-[#F5F4FF] border-2 border-[#1A1A1A] sm:border-2.5 text-[#1A1A1A] hover:bg-[#F4A6C6] shadow-sticker-sm transition-all"
               title="My Wishlist"
             >
               <Heart className="w-4 h-4 fill-rose-300 stroke-[#1A1A1A] stroke-[2.5]" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#F4A6C6] border-2 border-[#1A1A1A] text-[#1A1A1A] text-[10px] font-extrabold flex items-center justify-center shadow-sticker-sm">
+                <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#F4A6C6] border-1.5 border-[#1A1A1A] text-[#1A1A1A] text-[9px] sm:text-[10px] font-extrabold flex items-center justify-center shadow-sticker-sm">
                   {wishlistCount}
                 </span>
               )}
@@ -107,12 +106,12 @@ function NavbarContent() {
             {/* Cart Drawer Trigger */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-full bg-[#F3E29B] border-2.5 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#F4A6C6] shadow-sticker-sm transition-all"
+              className="relative p-2 sm:p-2.5 rounded-full bg-[#F3E29B] border-2 border-[#1A1A1A] sm:border-2.5 text-[#1A1A1A] hover:bg-[#F4A6C6] shadow-sticker-sm transition-all"
               title="Shopping Cart"
             >
               <ShoppingBag className="w-4 h-4 stroke-[#1A1A1A] stroke-[2.5]" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#A9E8D6] border-2 border-[#1A1A1A] text-[#1A1A1A] text-[10px] font-extrabold flex items-center justify-center shadow-sticker-sm">
+                <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#A9E8D6] border-1.5 border-[#1A1A1A] text-[#1A1A1A] text-[9px] sm:text-[10px] font-extrabold flex items-center justify-center shadow-sticker-sm">
                   {cartCount}
                 </span>
               )}
@@ -120,30 +119,30 @@ function NavbarContent() {
 
             {/* User Account / Auth Modal Trigger */}
             {user ? (
-              <div className="flex items-center gap-2 pl-1">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 {role === 'seller' && (
                   <Link
                     href="/dashboard"
-                    className="hidden sm:flex items-center gap-1 text-xs font-extrabold text-[#1A1A1A] bg-[#A9E8D6] border-2.5 border-[#1A1A1A] px-3 py-1.5 rounded-full shadow-sticker-sm hover:scale-105 transition-all"
+                    className="hidden sm:flex items-center gap-1 text-xs font-extrabold text-[#1A1A1A] bg-[#A9E8D6] border-2 border-[#1A1A1A] px-3 py-1.5 rounded-full shadow-sticker-sm hover:scale-105 transition-all"
                   >
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    Dashboard
+                    <ShieldCheck className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <span>Dashboard</span>
                   </Link>
                 )}
 
                 <Link
                   href="/orders"
-                  className="hidden sm:flex items-center gap-2 text-xs font-bold text-[#1A1A1A] bg-[#F5F4FF] border-2.5 border-[#1A1A1A] px-3 py-1.5 rounded-full shadow-sticker-sm hover:bg-[#F4A6C6] transition-all"
+                  className="flex items-center gap-1.5 text-xs font-bold text-[#1A1A1A] bg-[#F5F4FF] border-2 border-[#1A1A1A] px-2.5 sm:px-3 py-1.5 rounded-full shadow-sticker-sm hover:bg-[#F4A6C6] transition-all"
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#F4A6C6] border-2 border-[#1A1A1A] flex items-center justify-center font-extrabold text-xs text-[#1A1A1A]">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#F4A6C6] border border-[#1A1A1A] flex items-center justify-center font-extrabold text-[11px] sm:text-xs text-[#1A1A1A]">
                     {user.name.charAt(0)}
                   </div>
-                  <span className="max-w-[80px] truncate">{user.name}</span>
+                  <span className="hidden sm:inline max-w-[70px] truncate">{user.name}</span>
                 </Link>
 
                 <button
                   onClick={logout}
-                  className="text-[11px] font-extrabold text-[#1A1A1A] bg-[#F5F4FF] hover:bg-rose-300 border-2 border-[#1A1A1A] px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sticker-sm"
+                  className="hidden xs:inline-block text-[10px] sm:text-[11px] font-extrabold text-[#1A1A1A] bg-[#F5F4FF] hover:bg-rose-300 border-2 border-[#1A1A1A] px-2 sm:px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sticker-sm"
                 >
                   Logout
                 </button>
@@ -151,19 +150,20 @@ function NavbarContent() {
             ) : (
               <button
                 onClick={() => setIsAuthOpen(true)}
-                className="btn-pill-pink text-xs py-2 px-5 font-extrabold flex items-center gap-1.5"
+                className="btn-pill-pink text-xs py-1.5 sm:py-2 px-3 sm:px-5 font-extrabold flex items-center gap-1"
               >
                 <User className="w-4 h-4 stroke-[2.5]" />
-                <span>Sign In</span>
+                <span className="hidden xs:inline">Sign In</span>
               </button>
             )}
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl bg-[#F5F4FF] border-2 border-[#1A1A1A] text-[#1A1A1A]"
+              className="md:hidden p-2 rounded-xl bg-[#F5F4FF] border-2 border-[#1A1A1A] text-[#1A1A1A] shadow-sticker-sm"
+              title="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 stroke-[2.5]" /> : <Menu className="w-5 h-5 stroke-[2.5]" />}
             </button>
 
           </div>
@@ -171,33 +171,49 @@ function NavbarContent() {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#F5F4FF] border-t-2.5 border-[#1A1A1A] px-4 pt-3 pb-6 space-y-3">
+          <div className="md:hidden bg-[#F5F4FF] border-t-2.5 border-[#1A1A1A] px-4 pt-3 pb-6 space-y-3 shadow-sticker-md">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-extrabold text-[#1A1A1A] bg-[#FFFFFF] border-2 border-[#1A1A1A] rounded-xl px-4 py-2 hover:bg-[#F4A6C6]"
+                  className="text-xs font-extrabold text-[#1A1A1A] bg-[#FFFFFF] border-2 border-[#1A1A1A] rounded-xl px-4 py-2.5 hover:bg-[#F4A6C6]"
                 >
                   {link.label}
                 </Link>
               ))}
+
+              <div className="pt-2 border-t border-[#1A1A1A]/15 flex items-center justify-between">
+                <span className="text-xs font-extrabold text-[#1A1A1A]">Active Role:</span>
+                <button
+                  onClick={() => {
+                    setRole(role === 'customer' ? 'seller' : 'customer');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="px-3 py-1 rounded-full bg-[#F3E29B] border-2 border-[#1A1A1A] text-xs font-extrabold text-[#1A1A1A]"
+                >
+                  {role.toUpperCase()} (Switch)
+                </button>
+              </div>
+
               {role === 'seller' && (
                 <Link
                   href="/dashboard"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-extrabold text-[#1A1A1A] bg-[#A9E8D6] border-2 border-[#1A1A1A] rounded-xl px-4 py-2"
+                  className="text-xs font-extrabold text-[#1A1A1A] bg-[#A9E8D6] border-2 border-[#1A1A1A] rounded-xl px-4 py-2.5 flex items-center justify-between"
                 >
-                  Seller Dashboard
+                  <span>Seller Dashboard</span>
+                  <ShieldCheck className="w-4 h-4 stroke-[2.5]" />
                 </Link>
               )}
+
               <Link
                 href="/orders"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-extrabold text-[#1A1A1A] bg-[#F3E29B] border-2 border-[#1A1A1A] rounded-xl px-4 py-2"
+                className="text-xs font-extrabold text-[#1A1A1A] bg-[#F3E29B] border-2 border-[#1A1A1A] rounded-xl px-4 py-2.5"
               >
-                My Orders & Keys
+                My Orders & Digital Keys
               </Link>
             </div>
           </div>

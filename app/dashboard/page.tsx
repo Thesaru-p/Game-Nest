@@ -264,7 +264,7 @@ export default function SellerDashboardPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
                   <label className="block text-[10px] text-[#1A1A1A] uppercase mb-1">Genre</label>
                   <select
@@ -295,7 +295,7 @@ export default function SellerDashboardPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 <div>
                   <label className="block text-[10px] text-[#1A1A1A] uppercase mb-1">Price ($)</label>
                   <input
