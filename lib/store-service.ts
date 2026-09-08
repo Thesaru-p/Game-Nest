@@ -3,7 +3,7 @@ import { INITIAL_GAMES, DEMO_USERS } from './mock-data';
 import { databases, APPWRITE_CONFIG } from './appwrite';
 import { ID, Query } from 'appwrite';
 
-const GAMES_KEY = 'gamenest_games_v1';
+const GAMES_KEY = 'gamenest_games_v2';
 const CART_KEY = 'gamenest_cart_v1';
 const ORDERS_KEY = 'gamenest_orders_v1';
 const WISHLIST_KEY = 'gamenest_wishlist_v1';
