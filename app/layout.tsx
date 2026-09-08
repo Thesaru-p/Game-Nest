@@ -8,6 +8,13 @@ import { Toast } from '@/components/Toast';
 export const metadata: Metadata = {
   title: 'Game Nest | Y2K Retro Digital Game Marketplace',
   description: 'Buy and sell verified digital game keys with Y2K retro style and instant key delivery.',
+  icons: {
+    icon: [
+      { url: '/images/logo.png', type: 'image/png' },
+    ],
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
