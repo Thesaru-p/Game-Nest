@@ -1,95 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --bg-dark: #0a0a0a;
-    --bg-surface: #141414;
-    --bg-card: #1a1a1a;
-    --accent-copper: #c9884f;
-    --accent-amber: #e09f53;
-    --border-dark: #2a2a2a;
-    --text-main: #f5f5f0;
-    --text-muted: #9a9a9a;
+    --periwinkle: #6C6CEB;
+    --card-kawaii: #F5F4FF;
+    --pink-kawaii: #F4A6C6;
+    --yellow-kawaii: #F3E29B;
+    --mint-kawaii: #A9E8D6;
+    --cable-grey: #B4B3E6;
+    --ink: #1A1A1A;
+    --glitch-cyan: #5FE0E0;
+    --glitch-magenta: #F24FA0;
   }
 
   body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--periwinkle);
+    color: var(--ink);
+    font-family: 'Poppins', 'Quicksand', system-ui, sans-serif;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Fredoka', 'Poppins', sans-serif;
   }
 }
 
-/* Custom Luxury Ambient Glow & Effects */
-.amber-glow-bg {
-  background: radial-gradient(circle at 50% 30%, rgba(201, 136, 79, 0.16) 0%, rgba(10, 10, 10, 0.98) 70%);
+/* Chromatic Aberration / Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 
+    -3px -1px 0px #5FE0E0,
+    3px 2px 0px #F24FA0,
+    3px 3px 0px #1A1A1A;
 }
 
-.amber-glow-hero {
-  background: radial-gradient(ellipse at 50% 20%, rgba(201, 136, 79, 0.22) 0%, rgba(20, 20, 20, 0.7) 45%, rgba(10, 10, 10, 1) 85%);
+.glitch-text-dark {
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+  font-weight: 800;
+  color: #1A1A1A;
+  text-shadow: 
+    -2px -1px 0px #5FE0E0,
+    2px 2px 0px #F24FA0;
 }
 
-.card-luxury {
-  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-luxury:hover {
-  border-color: rgba(201, 136, 79, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(201, 136, 79, 0.25);
-  transform: translateY(-3px);
-}
-
-.btn-copper-pill {
-  background: linear-gradient(135deg, #c9884f 0%, #a86c38 100%);
-  color: #0a0a0a;
+.glitch-subhead {
+  font-style: italic;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: 9999px;
-  padding: 0.75rem 2rem;
-  transition: all 0.25s ease;
-  box-shadow: 0 0 20px rgba(201, 136, 79, 0.3);
+  letter-spacing: -0.02em;
+  text-shadow: 
+    -2px -1px 0px rgba(95, 224, 224, 0.7),
+    2px 1.5px 0px rgba(242, 79, 160, 0.7);
 }
 
-.btn-copper-pill:hover {
-  background: linear-gradient(135deg, #e09f53 0%, #c9884f 100%);
-  box-shadow: 0 0 30px rgba(201, 136, 79, 0.5);
-  transform: scale(1.03);
+/* Y2K Glossy Sticker Cards */
+.card-kawaii-sticker {
+  background-color: #F5F4FF;
+  border: 2.5px solid #1A1A1A;
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 5px 5px 0px 0px #1A1A1A;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-copper-outline {
-  border: 1px solid #c9884f;
-  color: #c9884f;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+/* Glossy top sheen highlight */
+.card-kawaii-sticker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-kawaii-sticker:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 7px 0px 0px #1A1A1A;
+}
+
+/* Y2K Glossy Sticker Pill Buttons */
+.btn-pill-pink {
+  background: linear-gradient(180deg, #FBD0E4 0%, #F4A6C6 60%, #E27FA8 100%);
+  color: #1A1A1A;
+  font-weight: 700;
+  font-family: 'Fredoka', 'Poppins', sans-serif;
+  letter-spacing: 0.02em;
+  border: 2.5px solid #1A1A1A;
   border-radius: 9999px;
   padding: 0.65rem 1.75rem;
-  transition: all 0.25s ease;
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.btn-copper-outline:hover {
-  background: rgba(201, 136, 79, 0.15);
-  color: #f5f5f0;
-  border-color: #e09f53;
+.btn-pill-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBD0E4 40%, #F4A6C6 100%);
+}
+
+.btn-pill-pink:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+.btn-pill-yellow {
+  background: linear-gradient(180deg, #FFF3B8 0%, #F3E29B 60%, #D8BF58 100%);
+  color: #1A1A1A;
+  font-weight: 700;
+  font-family: 'Fredoka', 'Poppins', sans-serif;
+  letter-spacing: 0.02em;
+  border: 2.5px solid #1A1A1A;
+  border-radius: 9999px;
+  padding: 0.65rem 1.75rem;
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-pill-yellow:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF3B8 40%, #F3E29B 100%);
+}
+
+.btn-pill-yellow:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+.btn-pill-mint {
+  background: linear-gradient(180deg, #C6F5E8 0%, #A9E8D6 60%, #76CBB3 100%);
+  color: #1A1A1A;
+  font-weight: 700;
+  font-family: 'Fredoka', 'Poppins', sans-serif;
+  border: 2.5px solid #1A1A1A;
+  border-radius: 9999px;
+  padding: 0.65rem 1.75rem;
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-pill-outline {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-weight: 700;
+  font-family: 'Fredoka', 'Poppins', sans-serif;
+  border: 2.5px solid #1A1A1A;
+  border-radius: 9999px;
+  padding: 0.65rem 1.75rem;
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-pill-outline:hover {
+  background-color: #F5F4FF;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+}
+
+/* Badges */
+.badge-kawaii-pink {
+  background-color: #F4A6C6;
+  color: #1A1A1A;
+  border: 2px solid #1A1A1A;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.65rem;
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+.badge-kawaii-yellow {
+  background-color: #F3E29B;
+  color: #1A1A1A;
+  border: 2px solid #1A1A1A;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.65rem;
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+.badge-kawaii-mint {
+  background-color: #A9E8D6;
+  color: #1A1A1A;
+  border: 2px solid #1A1A1A;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.65rem;
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+/* Custom Cable Motif Pattern SVG */
+.bg-cable-pattern {
+  background-image: radial-gradient(#B4B3E6 1.5px, transparent 1.5px), radial-gradient(#B4B3E6 1.5px, #6C6CEB 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #6C6CEB;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 4px;
+  background: #F4A6C6;
+  border: 2px solid #1A1A1A;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9884f;
+  background: #F3E29B;
 }
