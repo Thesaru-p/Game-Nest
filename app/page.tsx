@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, ShieldCheck, Flame, Tag, Clock } from 'lucide-react';
+import { ArrowRight, Tag, Clock, Gamepad2 } from 'lucide-react';
 import { HeroFeatured } from '@/components/HeroFeatured';
 import { GameCard } from '@/components/GameCard';
 import { PillFilters } from '@/components/PillFilters';
@@ -48,7 +48,7 @@ export default function StorefrontPage() {
   const newGames = games.filter((g) => g.badge === 'new');
 
   return (
-    <div className="space-y-12 pb-20">
+    <div className="space-y-10 pb-20 bg-[#6C6CEB]">
       
       {/* Featured Game Hero */}
       {featuredGame && <HeroFeatured game={featuredGame} />}
@@ -58,19 +58,19 @@ export default function StorefrontPage() {
         
         {/* Filter Section Header */}
         <div className="space-y-6 pt-4">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-surface-border pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b-3 border-[#1A1A1A] pb-4">
             <div>
-              <span className="text-xs font-mono text-accent uppercase tracking-wider block mb-1">
-                Browse Collection
+              <span className="text-xs font-extrabold text-[#1A1A1A] uppercase tracking-wider block mb-1 bg-[#F4A6C6] border-2 border-[#1A1A1A] px-3 py-0.5 rounded-full w-fit shadow-sticker-sm">
+                Browse Retro & Next-Gen Collection
               </span>
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-primary">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white glitch-text tracking-tight uppercase mt-2">
                 GAME CATALOG
               </h2>
             </div>
 
-            <Link href="/catalog" className="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-              View All Games ({games.length})
-              <ArrowRight className="w-3.5 h-3.5" />
+            <Link href="/catalog" className="btn-pill-yellow text-xs py-2 px-5 font-extrabold flex items-center gap-1">
+              <span>View All ({games.length})</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </Link>
           </div>
 
@@ -96,17 +96,19 @@ export default function StorefrontPage() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-96 rounded-2xl bg-surface animate-pulse border border-surface-border" />
+              <div key={i} className="h-96 rounded-2xl bg-[#F5F4FF] border-3 border-[#1A1A1A] animate-pulse shadow-sticker-md" />
             ))}
           </div>
         ) : (
           <div className="space-y-12">
             
             {filteredGames.length === 0 ? (
-              <div className="text-center py-16 bg-surface rounded-2xl border border-surface-border">
-                <p className="text-xs font-mono text-primary-muted uppercase">
-                  NO GAMES FOUND MATCHING YOUR FILTERS
-                </p>
+              <div className="text-center py-16 bg-[#F5F4FF] rounded-3xl border-3 border-[#1A1A1A] shadow-sticker-lg space-y-4">
+                <div className="w-16 h-16 rounded-full bg-[#F4A6C6] border-2.5 border-[#1A1A1A] flex items-center justify-center mx-auto shadow-sticker-sm">
+                  <Gamepad2 className="w-8 h-8 stroke-[2.5]" />
+                </div>
+                <h3 className="text-lg font-extrabold text-[#1A1A1A] uppercase">NO GAMES FOUND MATCHING YOUR FILTERS</h3>
+                <p className="text-xs font-bold text-[#1A1A1A]/70">Try clearing your search query or resetting platform tags.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -118,10 +120,10 @@ export default function StorefrontPage() {
 
             {/* Special Deals Section */}
             {dealsGames.length > 0 && (
-              <div className="space-y-6 pt-6 border-t border-surface-border">
-                <div className="flex items-center gap-2 text-accent">
-                  <Tag className="w-5 h-5" />
-                  <h3 className="text-xl font-bold font-display text-primary uppercase">
+              <div className="space-y-6 pt-8 border-t-3 border-[#1A1A1A]">
+                <div className="flex items-center gap-2">
+                  <Tag className="w-6 h-6 stroke-[2.5] stroke-[#1A1A1A]" />
+                  <h3 className="text-2xl font-extrabold text-white glitch-text tracking-tight uppercase">
                     SPECIAL DEALS & DISCOUNTS
                   </h3>
                 </div>
@@ -136,10 +138,10 @@ export default function StorefrontPage() {
 
             {/* New Releases Section */}
             {newGames.length > 0 && (
-              <div className="space-y-6 pt-6 border-t border-surface-border">
-                <div className="flex items-center gap-2 text-amber-400">
-                  <Clock className="w-5 h-5" />
-                  <h3 className="text-xl font-bold font-display text-primary uppercase">
+              <div className="space-y-6 pt-8 border-t-3 border-[#1A1A1A]">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-6 h-6 stroke-[2.5] stroke-[#1A1A1A]" />
+                  <h3 className="text-2xl font-extrabold text-white glitch-text tracking-tight uppercase">
                     NEW RELEASES
                   </h3>
                 </div>

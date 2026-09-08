@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Star, Heart, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Star, Heart, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 import { Game } from '@/lib/types';
 import { useAuth } from '@/context/AuthContext';
 
@@ -16,59 +16,57 @@ export function HeroFeatured({ game }: HeroFeaturedProps) {
   const isWishlisted = wishlist.includes(game.gameId);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0a0a0a] py-8 sm:py-12 border-b border-surface-border">
-      
-      {/* Background Radial Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-900/10 via-transparent to-transparent pointer-events-none" />
-
+    <section className="relative w-full overflow-hidden bg-[#6C6CEB] py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-surface/80 border border-surface-border rounded-3xl p-6 sm:p-10 relative overflow-hidden backdrop-blur-md shadow-2xl">
-          
+        <div className="bg-[#F5F4FF] border-3 border-[#1A1A1A] rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-sticker-lg">
+          {/* Top Sheen */}
+          <div className="absolute top-0 left-0 right-0 h-2/5 bg-gradient-to-b from-white/70 to-transparent pointer-events-none" />
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-6 space-y-6 text-left">
+            <div className="lg:col-span-6 space-y-5 text-left">
               
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold">
-                <SparklesIcon />
-                <span>Featured Game of the Month</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F3E29B] border-2 border-[#1A1A1A] text-[#1A1A1A] text-xs font-extrabold shadow-sticker-sm">
+                <Sparkles className="w-4 h-4 fill-[#1A1A1A]" />
+                <span className="uppercase">FEATURED GAME OF THE MONTH</span>
               </div>
 
               <div>
-                <span className="text-xs font-mono text-accent uppercase tracking-wider block mb-1">
+                <span className="text-xs font-extrabold text-[#6C6CEB] uppercase tracking-wider block mb-1">
                   {game.genre} • {game.platform}
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-primary tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1A1A1A] tracking-tight leading-tight italic glitch-subhead">
                   {game.title}
                 </h1>
                 {game.subtitle && (
-                  <p className="text-sm font-mono text-primary-muted mt-2">
+                  <p className="text-xs sm:text-sm font-bold text-[#1A1A1A]/70 mt-1">
                     {game.subtitle}
                   </p>
                 )}
               </div>
 
-              <p className="text-xs sm:text-sm text-primary-muted leading-relaxed line-clamp-3">
+              <p className="text-xs sm:text-sm text-[#1A1A1A]/80 font-medium leading-relaxed line-clamp-3">
                 {game.description}
               </p>
 
               {/* Price & Rating Row */}
               <div className="flex items-center gap-6 pt-2">
                 <div>
-                  <span className="text-[10px] text-primary-muted font-mono uppercase block">Digital Key Price</span>
+                  <span className="text-[10px] text-[#1A1A1A]/60 font-bold uppercase block">Digital Key Price</span>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-3xl font-extrabold text-accent">${game.price.toFixed(2)}</span>
+                    <span className="text-3xl font-extrabold text-[#1A1A1A]">${game.price.toFixed(2)}</span>
                     {game.originalPrice && (
-                      <span className="text-sm text-primary-muted line-through">${game.originalPrice.toFixed(2)}</span>
+                      <span className="text-sm text-[#1A1A1A]/50 line-through font-bold">${game.originalPrice.toFixed(2)}</span>
                     )}
                   </div>
                 </div>
 
                 {game.rating && (
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs">
-                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    <span className="font-bold">{game.rating}</span>
-                    <span className="text-[10px] text-primary-muted">/ 5.0</span>
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F3E29B] border-2 border-[#1A1A1A] text-[#1A1A1A] text-xs font-extrabold shadow-sticker-sm">
+                    <Star className="w-4 h-4 fill-[#1A1A1A]" />
+                    <span className="font-extrabold">{game.rating}</span>
+                    <span className="text-[10px] text-[#1A1A1A]/70">/ 5.0</span>
                   </div>
                 )}
               </div>
@@ -77,40 +75,40 @@ export function HeroFeatured({ game }: HeroFeaturedProps) {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={() => addToCart(game)}
-                  className="btn-copper-pill text-xs py-3.5 px-8 font-bold flex items-center gap-2"
+                  className="btn-pill-pink text-xs py-3 px-8 font-extrabold flex items-center gap-2"
                 >
                   <span>Buy Now (${game.price.toFixed(2)})</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                 </button>
 
                 <Link
                   href={`/game/${game.gameId}`}
-                  className="btn-copper-outline text-xs py-3 px-6 font-bold"
+                  className="btn-pill-yellow text-xs py-3 px-6 font-extrabold"
                 >
                   View Details
                 </Link>
 
                 <button
                   onClick={() => toggleWishlist(game.gameId)}
-                  className={`p-3 rounded-full border transition-all ${
+                  className={`p-3 rounded-full border-2 border-[#1A1A1A] transition-all shadow-sticker-sm ${
                     isWishlisted
-                      ? 'bg-rose-500/20 border-rose-500 text-rose-400'
-                      : 'bg-surface border-surface-border text-primary-muted hover:text-rose-400'
+                      ? 'bg-[#F4A6C6]'
+                      : 'bg-[#FFFFFF] hover:bg-[#F4A6C6]'
                   }`}
                   title="Save to Wishlist"
                 >
-                  <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-rose-500' : ''}`} />
+                  <Heart className={`w-5 h-5 stroke-[#1A1A1A] stroke-[2.5] ${isWishlisted ? 'fill-[#1A1A1A]' : ''}`} />
                 </button>
               </div>
 
               {/* Instant Delivery Feature */}
-              <div className="flex items-center gap-4 text-[11px] text-primary-muted font-mono pt-2 border-t border-surface-border/60">
+              <div className="flex items-center gap-4 text-[11px] text-[#1A1A1A]/80 font-bold pt-3 border-t-2 border-[#1A1A1A]/15">
                 <div className="flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-accent" />
-                  <span>Instant Delivery</span>
+                  <Zap className="w-4 h-4 fill-[#F3E29B] stroke-[#1A1A1A] stroke-[2]" />
+                  <span>Instant Dispatch</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-accent" />
+                  <ShieldCheck className="w-4 h-4 fill-[#A9E8D6] stroke-[#1A1A1A] stroke-[2]" />
                   <span>Official Key Guarantee</span>
                 </div>
               </div>
@@ -119,7 +117,7 @@ export function HeroFeatured({ game }: HeroFeaturedProps) {
 
             {/* Right Product Image Column */}
             <div className="lg:col-span-6 relative flex justify-center">
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden border border-surface-border shadow-2xl bg-[#0a0a0a] group">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden border-3 border-[#1A1A1A] shadow-sticker-lg bg-[#B4B3E6] group">
                 <Image
                   src={game.coverImage}
                   alt={game.title}
@@ -127,10 +125,9 @@ export function HeroFeatured({ game }: HeroFeaturedProps) {
                   priority
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
                 
                 {game.badge && (
-                  <span className="absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full bg-amber-600/90 text-amber-100 uppercase tracking-wider">
+                  <span className="absolute top-4 left-4 text-[11px] font-extrabold px-3 py-1 rounded-full bg-[#F4A6C6] text-[#1A1A1A] border-2 border-[#1A1A1A] shadow-sticker-sm uppercase">
                     {game.badge}
                   </span>
                 )}
@@ -142,13 +139,5 @@ export function HeroFeatured({ game }: HeroFeaturedProps) {
         </div>
       </div>
     </section>
-  );
-}
-
-function SparklesIcon() {
-  return (
-    <svg className="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-    </svg>
   );
 }

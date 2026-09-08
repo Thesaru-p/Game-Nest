@@ -15,14 +15,14 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
   const { wishlist, toggleWishlist, addToCart } = useAuth();
   const isWishlisted = wishlist.includes(game.gameId);
 
-  const getBadgeStyle = () => {
+  const getBadgeClass = () => {
     switch (game.badge) {
       case 'limited':
-        return 'bg-amber-600/90 text-amber-100 border-amber-400/50 shadow-copper';
+        return 'badge-kawaii-pink';
       case 'new':
-        return 'bg-emerald-600/90 text-emerald-100 border-emerald-400/50';
+        return 'badge-kawaii-yellow';
       case 'sale':
-        return 'bg-rose-600/90 text-rose-100 border-rose-400/50';
+        return 'badge-kawaii-mint';
       default:
         return null;
     }
@@ -42,9 +42,12 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
   };
 
   return (
-    <div className="group relative rounded-2xl card-luxury overflow-hidden flex flex-col justify-between">
+    <div className="group relative rounded-2xl bg-[#F5F4FF] border-2.5 border-[#1A1A1A] shadow-sticker-md overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-sticker-lg transition-all duration-200">
+      {/* Glossy top sheen highlight */}
+      <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
+
       {/* Top Image Container */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#B4B3E6] border-b-2.5 border-[#1A1A1A]">
         <Image
           src={game.coverImage}
           alt={game.title}
@@ -53,97 +56,85 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
 
-        {/* Gradient Overlay for bottom text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-black/30 opacity-90" />
-
         {/* Top-Left Badge */}
         {game.badge && getBadgeLabel() && (
-          <div className="absolute top-3 left-3 z-10">
-            <span
-              className={`text-[9px] font-bold px-2.5 py-1 rounded-full border tracking-widest uppercase shadow-md backdrop-blur-md ${getBadgeStyle()}`}
-            >
+          <div className="absolute top-3 left-3 z-20">
+            <span className={getBadgeClass() || 'badge-kawaii-yellow'}>
               {getBadgeLabel()}
             </span>
           </div>
         )}
 
-        {/* Top-Right Wishlist Heart Button */}
+        {/* Top-Right Wishlist Button */}
         <button
           onClick={(e) => {
             e.preventDefault();
             toggleWishlist(game.gameId);
           }}
-          className={`absolute top-3 right-3 z-10 w-9 h-9 rounded-full backdrop-blur-md border flex items-center justify-center transition-all ${
+          className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full border-2 border-[#1A1A1A] flex items-center justify-center transition-all shadow-sticker-sm ${
             isWishlisted
-              ? 'bg-rose-500/20 border-rose-500 text-rose-400 shadow-lg'
-              : 'bg-black/50 border-white/10 text-primary-muted hover:text-rose-400 hover:border-rose-400/50'
+              ? 'bg-[#F4A6C6] scale-110'
+              : 'bg-[#FFFFFF] hover:bg-[#F3E29B]'
           }`}
           title={isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
         >
-          <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-rose-500' : ''}`} />
+          <Heart className={`w-4 h-4 stroke-[#1A1A1A] stroke-[2.5] ${isWishlisted ? 'fill-[#1A1A1A]' : ''}`} />
         </button>
 
-        {/* Platform tag bottom-left of image */}
-        <div className="absolute bottom-3 left-3 z-10">
-          <span className="text-[10px] font-mono font-medium text-accent uppercase tracking-widest px-2 py-0.5 rounded bg-black/60 border border-accent/20 backdrop-blur-sm">
+        {/* Platform tag bottom-left */}
+        <div className="absolute bottom-3 left-3 z-20">
+          <span className="text-[10px] font-extrabold text-[#1A1A1A] bg-[#FFFFFF] border-2 border-[#1A1A1A] px-2.5 py-0.5 rounded-full shadow-sticker-sm uppercase">
             {game.platform}
           </span>
         </div>
       </div>
 
       {/* Card Info Details */}
-      <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 space-y-3">
+      <div className="p-4 flex flex-col justify-between flex-1 space-y-3 bg-[#F5F4FF]">
         <div>
-          <div className="flex items-center justify-between text-[10px] text-primary-muted font-mono mb-1">
-            <span>{game.genre}</span>
+          <div className="flex items-center justify-between text-[11px] font-bold text-[#1A1A1A]/70 mb-1">
+            <span className="uppercase font-mono">{game.genre}</span>
             {game.rating && (
-              <span className="flex items-center gap-1 text-amber-400">
-                <Star className="w-3 h-3 fill-amber-400" />
+              <span className="flex items-center gap-1 text-[#1A1A1A] bg-[#F3E29B] border border-[#1A1A1A] px-1.5 py-0.2 rounded-md font-extrabold text-[10px]">
+                <Star className="w-3 h-3 fill-[#1A1A1A]" />
                 {game.rating}
               </span>
             )}
           </div>
 
-          <Link href={`/game/${game.gameId}`} className="group-hover:text-accent transition-colors">
-            <h3 className="text-sm font-bold text-primary line-clamp-1 tracking-wide">
+          <Link href={`/game/${game.gameId}`} className="group-hover:text-[#6C6CEB] transition-colors">
+            <h3 className="text-sm font-extrabold text-[#1A1A1A] line-clamp-1 tracking-tight">
               {game.title}
             </h3>
             {game.subtitle && (
-              <p className="text-[10px] text-primary-muted line-clamp-1 mt-0.5">
+              <p className="text-[11px] text-[#1A1A1A]/70 line-clamp-1 mt-0.5 font-medium">
                 {game.subtitle}
               </p>
             )}
           </Link>
         </div>
 
-        {/* Price & Buy Now Actions */}
-        <div className="pt-2 border-t border-surface-border/50 flex items-center justify-between">
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-base font-extrabold text-accent">
-                ${game.price.toFixed(2)}
+        {/* Price & Buy Actions */}
+        <div className="pt-2.5 border-t-2 border-[#1A1A1A]/15 flex items-center justify-between">
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-lg font-extrabold text-[#1A1A1A]">
+              ${game.price.toFixed(2)}
+            </span>
+            {game.originalPrice && (
+              <span className="text-xs text-[#1A1A1A]/60 line-through font-semibold">
+                ${game.originalPrice.toFixed(2)}
               </span>
-              {game.originalPrice && (
-                <span className="text-[11px] text-primary-muted line-through">
-                  ${game.originalPrice.toFixed(2)}
-                </span>
-              )}
-            </div>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              href={`/game/${game.gameId}`}
-              className="text-[10px] font-bold uppercase tracking-widest text-primary-muted hover:text-primary px-2 py-1"
-            >
-              DETAILS
-            </Link>
             <button
               onClick={() => addToCart(game)}
-              className="p-2 rounded-full bg-accent/15 border border-accent/40 text-accent hover:bg-accent hover:text-[#0a0a0a] transition-all shadow-sm"
+              className="px-3.5 py-1.5 rounded-full bg-[#F4A6C6] hover:bg-[#F3E29B] border-2 border-[#1A1A1A] text-[#1A1A1A] font-extrabold text-xs flex items-center gap-1 shadow-sticker-sm active:translate-y-0.5 transition-all"
               title="Add to Cart"
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>BUY</span>
             </button>
           </div>
         </div>

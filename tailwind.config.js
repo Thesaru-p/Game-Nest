@@ -9,52 +9,64 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0a',
-        surface: {
-          DEFAULT: '#141414',
-          card: '#1a1a1a',
-          hover: '#222222',
-          border: '#2a2a2a',
+        // Brand Y2K Palette
+        periwinkle: {
+          DEFAULT: '#6C6CEB',
+          dark: '#5555d6',
+          light: '#8585f2',
+          deep: '#4b4bbd',
         },
-        accent: {
-          DEFAULT: '#c9884f',
-          hover: '#d9975b',
-          amber: '#e09f53',
-          dark: '#8c592d',
-          glow: 'rgba(201, 136, 79, 0.25)',
+        card: {
+          kawaii: '#F5F4FF',
+          hover: '#EBE9FE',
+          dark: '#1A1A1A',
         },
-        primary: {
-          DEFAULT: '#f5f5f0',
-          muted: '#9a9a9a',
-          dark: '#666666',
+        pink: {
+          kawaii: '#F4A6C6',
+          highlight: '#FBD0E4',
+          shadow: '#E27FA8',
+          deep: '#d96596',
+        },
+        yellow: {
+          kawaii: '#F3E29B',
+          highlight: '#FFF3B8',
+          shadow: '#D8BF58',
+        },
+        mint: {
+          kawaii: '#A9E8D6',
+          highlight: '#C6F5E8',
+          shadow: '#76CBB3',
+        },
+        cable: {
+          grey: '#B4B3E6',
+          dark: '#8B8AC9',
+        },
+        ink: '#1A1A1A',
+        glitch: {
+          cyan: '#5FE0E0',
+          magenta: '#F24FA0',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'sans-serif'],
-      },
-      backgroundImage: {
-        'amber-glow': 'radial-gradient(ellipse at center, rgba(201, 136, 79, 0.18) 0%, rgba(10, 10, 10, 0.95) 75%)',
-        'hero-gradient': 'linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 100%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(18,18,18,0.95) 100%)',
+        sans: ['Poppins', 'Quicksand', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Fredoka', 'Outfit', 'Quicksand', 'sans-serif'],
       },
       boxShadow: {
-        'copper': '0 0 25px -5px rgba(201, 136, 79, 0.3)',
-        'copper-lg': '0 0 45px -5px rgba(201, 136, 79, 0.4)',
-        'panel': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
+        'sticker-sm': '2px 2px 0px 0px #1A1A1A',
+        'sticker': '4px 4px 0px 0px #1A1A1A',
+        'sticker-md': '5px 5px 0px 0px #1A1A1A',
+        'sticker-lg': '7px 7px 0px 0px #1A1A1A',
+        'sticker-pink': '4px 4px 0px 0px #E27FA8',
+        'sticker-yellow': '4px 4px 0px 0px #D8BF58',
+        'sticker-mint': '4px 4px 0px 0px #76CBB3',
+        'sticker-inset': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.4)',
+      },
+      borderWidth: {
+        '2.5': '2.5px',
+        '3': '3px',
       },
       letterSpacing: {
-        'widest-luxury': '0.25em',
-        'tracked': '0.15em',
-      },
-      animation: {
-        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-      },
-      keyframes: {
-        pulseGlow: {
-          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-          '50%': { opacity: '1', transform: 'scale(1.05)' },
-        },
+        'glitch': '0.08em',
       },
     },
   },
