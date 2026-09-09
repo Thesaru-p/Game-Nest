@@ -167,6 +167,29 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* MISSION & VISION SECTION */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="bg-[#F3E29B] rounded-3xl p-6 sm:p-8 border-3 border-[#1A1A1A] shadow-sticker-lg space-y-4 hover:-translate-y-1 transition-transform">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] border-2 border-[#1A1A1A] text-xs font-extrabold text-[#1A1A1A] shadow-sticker-sm uppercase">
+              <span className="text-base">🎮</span>
+              <span>Our Mission</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A1A1A] leading-snug">
+              To bring great games to gamers, simply and reliably.
+            </h2>
+          </div>
+
+          <div className="bg-[#A9E8D6] rounded-3xl p-6 sm:p-8 border-3 border-[#1A1A1A] shadow-sticker-lg space-y-4 hover:-translate-y-1 transition-transform">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] border-2 border-[#1A1A1A] text-xs font-extrabold text-[#1A1A1A] shadow-sticker-sm uppercase">
+              <span className="text-base">🌎</span>
+              <span>Our Vision</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A1A1A] leading-snug">
+              To become a trusted gaming destination for gamers in Sri Lanka and around the world.
+            </h2>
+          </div>
+        </section>
+
         {/* IMPACT METRICS GRID */}
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, idx) => {
@@ -246,6 +269,30 @@ export default function AboutPage() {
                   <h3 className="text-xl font-extrabold text-[#1A1A1A]">
                     Restoring Integrity to Digital Video Game Commerce
                   </h3>
+                  
+                  {/* Mission & Vision Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                    <div className="bg-[#F3E29B] rounded-2xl p-5 border-2.5 border-[#1A1A1A] shadow-sticker-sm space-y-2">
+                      <div className="text-sm font-extrabold text-[#1A1A1A] flex items-center gap-2 uppercase tracking-wide">
+                        <span className="text-lg">🎮</span>
+                        <span>Our Mission</span>
+                      </div>
+                      <p className="text-xs font-extrabold text-[#1A1A1A] leading-relaxed">
+                        To bring great games to gamers, simply and reliably.
+                      </p>
+                    </div>
+
+                    <div className="bg-[#A9E8D6] rounded-2xl p-5 border-2.5 border-[#1A1A1A] shadow-sticker-sm space-y-2">
+                      <div className="text-sm font-extrabold text-[#1A1A1A] flex items-center gap-2 uppercase tracking-wide">
+                        <span className="text-lg">🌎</span>
+                        <span>Our Vision</span>
+                      </div>
+                      <p className="text-xs font-extrabold text-[#1A1A1A] leading-relaxed">
+                        To become a trusted gaming destination for gamers in Sri Lanka and around the world.
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="space-y-4 text-xs font-bold text-[#1A1A1A]/80 leading-relaxed">
                     <p>
                       Game Nest was conceived by gamers who believed purchasing a digital key should feel as joyful and instant as opening a fresh retro game cartridge. We reject gray-market shortcuts and unvetted sellers.
